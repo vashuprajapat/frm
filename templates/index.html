@@ -159,6 +159,15 @@
   <audio id="q3e">
     <source src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/Q3e.mp3" type="audio/mpeg">
 </audio>
+  <audio id="q1g">
+    <source src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/Q1Guj-converted.mp3" type="audio/mpeg">
+</audio>
+  <audio id="q2g">
+    <source src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/Q2Guj-converted.mp3" type="audio/mpeg">
+</audio>
+  <audio id="q3g">
+    <source src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/Q3Guj-converted.mp3" type="audio/mpeg">
+</audio>
   <label onclick="langEnglish();">English</label>
   <label onclick="langHindi();">हिंदी</label>
   <label onclick="langGujarati();">ગુજરાતી</label>
@@ -240,14 +249,14 @@ function langHindi() {
 }
 function langGujarati() {
     document.getElementById("mainTitle").innerHTML="પોલીસ ફીડબેક સિસ્ટમ";
-    document.getElementById("label-q1").innerHTML="1)તમે પોલીસ સ્ટેશન કેવી રીતે આવ્યા?";
+    document.getElementById("label-q1").innerHTML="1)તમે પોલીસ સ્ટેશન કેવી રીતે આવ્યા?  <span onclick='playaudio(q1g)'><img  height='20px' src='https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png' alt=''></span>";
     document.getElementById("q1-ans1-span").innerHTML="પોલીસ અધિકારીને ઓળખતી વ્યક્તિ દ્વારા";
     document.getElementById("q1-ans2-span").innerHTML="પાડોશી/સ્થાનિક નેતા સાથે";
     document.getElementById("q1-ans3-span").innerHTML="તમારા પોતાના પર";
-    document.getElementById("label-q2").innerHTML="2) તમને PS કેટલા સમય પછી સાંભળવામાં આવ્યું?";
+    document.getElementById("label-q2").innerHTML="2) તમને PS કેટલા સમય પછી સાંભળવામાં આવ્યું?  <span onclick='playaudio(q2g)'><img  height='20px' src='https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png' alt=''></span>";
     document.getElementById("q2-ans3-span").innerHTML="😍😍તરત";
     document.getElementById("q2-ans4-span").innerHTML="😡15 મિનિટથી વધુ";
-    document.getElementById("label-q3").innerHTML="3) પોલીસ સ્ટેશનમાં પોલીસ અધિકારીઓ સાથેના તમારા અનુભવનું તમે કેવી રીતે વર્ણન કરશો?";
+    document.getElementById("label-q3").innerHTML="3) પોલીસ સ્ટેશનમાં પોલીસ અધિકારીઓ સાથેના તમારા અનુભવનું તમે કેવી રીતે વર્ણન કરશો?  <span onclick='playaudio(q3g)'><img  height='20px' src='https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png' alt=''></span>";
     
 }
 function playaudio(q){
@@ -262,6 +271,18 @@ function playaudio(q){
     if (q==q3e) {
         
         document.getElementById("q3e").play();
+    }
+    if (q==q1g) {
+        
+        document.getElementById("q1g").play();
+    }
+    if (q==q2g) {
+        
+        document.getElementById("q2g").play();
+    }
+    if (q==q3g) {
+        
+        document.getElementById("q3g").play();
     }
 
 }
