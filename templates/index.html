@@ -34,6 +34,9 @@
    
  
  }
+    .hide{
+    display:"none";
+    }
  .form-control label{
    display: block;
    margin-bottom: 10px;
@@ -163,11 +166,14 @@
   <h1 id="mainTitle">Police Feedback System</h1>
   <form id="feedback" action="add_review" method="post">
    <div class="form-control">
-      <input name="q11" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
+     <div class="hide">
+       <input name="q11" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
       <input name="q12" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
       <input name="q15" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
       <input name="q13" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
-  
+
+     </div>
+      
     <label for="q1" id="label-q1">
       1) How did you come to the police station ?  <span onclick="playaudio(q1e)"><img  height="20px" src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png" alt=""></span>
     </label>
