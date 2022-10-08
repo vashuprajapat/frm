@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Police Feedback System</title>
+  <!-- <script src="feedback.js"></script> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:wght@700&display=swap');
+ 
+ 
+ body{
+   background-color:#F8EDE3;
+ background-image: linear-gradient(62deg, #DFD3C3 0%, #D0B8A8 100%);
+    text-align: center;
+ 
+ 
+ 
+ }
+ form{
+   background-color: #ffff;
+   max-width: 400px;
+   font-weight: 900;
+   font-size: bold;
+   margin: 50px auto;
+   border-radius: 25px;
+   padding: 30px 20px;
+   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+ }
+ .form-control{
+   text-align: left;
+   margin: 25px;
+   
+ 
+ }
+ .form-control label{
+   display: block;
+   margin-bottom: 10px;
+   
+ }
+ 
+ .form-control label span{
+   border-radius: 25px;
+ transition: 0.2s ease;
+   
+ }
+ .form-control label span:hover{
+   
+   background-color: #d1f4b9;
+ }
+ 
+ 
+ 
+ .form-control textarea{
+    border: 1px solid #777;
+     border-radius: 2px;
+     font-family: inherit;
+     padding: 10px;
+     display: block;
+     width: 95%;
+ }
+ .form-control input[type="radio"]{
+   display: inline-block;
+   width: auto;
+   cursor: pointer;
+   
+ }
+ 
+ 
+ .bt {
+   min-width: 157px;
+   min-height: 41px;
+   font-family: 'Nunito', sans-serif;
+   font-size: 18px;
+   text-transform: uppercase;
+   letter-spacing: 1.3px;
+   font-weight: 700;
+   color: #313133;
+   background: #4FD1C5;
+   background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+   border: none;
+   border-radius: 1000px;
+   box-shadow: 12px 12px 24px rgb(79 209 197 / 64%);
+   transition: all 0.3s ease-in-out 0s;
+   cursor: pointer;
+   outline: none;
+   position: relative;
+   padding: 10px;
+ }
+ 
+ button::before {
+ content: '';
+ border-radius: 100px;
+ min-width: calc(157px + 12px);
+ min-height: calc(40px + 12px);
+ border: 6px solid #00FFCB;
+ box-shadow: 0 0 60px rgba(0,255,203,.64);
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ opacity: 0;
+ transition: all .3s ease-in-out 0s;
+ }
+ 
+ .button:hover, .button:focus {
+ color: #313133;
+ transform: translateY(-6px);
+ }
+ 
+ button:hover::before, button:focus::before {
+ opacity: 1;
+ }
+ 
+ button::after {
+ content: '';
+ width: 30px; height: 30px;
+ border-radius: 100%;
+ border: 6px solid #00FFCB;
+ position: absolute;
+ z-index: -1;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ animation: ring 1.5s infinite; 
+ }
+ 
+ button:hover::after, button:focus::after {
+ animation: none;
+ display: none;
+ }
+ 
+ @keyframes ring {
+ 0% {
+   width: 10px;
+   height: 10px;
+   opacity: 1;
+ }
+ 100% {
+   width: 30px;
+   height: 30px;
+   opacity: 0;
+ }
+ }
+  </style>
+</head>
+<!-- <link rel="stylesheet" href="style.css"> -->
+<body>
+  <audio id="q1e">
+    <source src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/Q1e.mp3" type="audio/mpeg">
+</audio>
+  <audio id="q2e">
+    <source src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/Q2e.mp3" type="audio/mpeg">
+</audio>
+  <audio id="q3e">
+    <source src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/Q3e.mp3" type="audio/mpeg">
+</audio>
+  <label onclick="langEnglish();">English</label>
+  <label onclick="langHindi();">हिंदी</label>
+  <label onclick="langGujarati();">ગુજરાતી</label>
+
+  <h1 id="mainTitle">Police Feedback System</h1>
+  <form id="feedback" action="add_review" method="post">
+   <div class="form-control">
+      <input name="q11" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
+      <input name="q12" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
+      <input name="q15" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
+      <input name="q13" id="q1-ans4" value="" checked="checked" type="radio"><span id="q1-ans4-span">Other</span>
+  
+    <label for="q1" id="label-q1">
+      1) How did you come to the police station ?  <span onclick="playaudio(q1e)"><img  height="20px" src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png" alt=""></span>
+    </label>
+    
+    <label for="ans1">
+      <input  name="q1" id="q1-ans1" value="Through a person known to a police officer" type="radio"><span id="q1-ans1-span">Through a person known to a police officer</span>
+  </label>
+  <label for="ans2">
+      <input name="q1" id="q1-ans2" value="With a neighbour/ local leader" type="radio"><span id="q1-ans2-span">With a neighbour/ local leader</span>
+  </label>
+  <label for="ans3">
+      <input name="q1" id="q1-ans3" value="On your own" type="radio"><span id="q1-ans3-span">On your own</span>
+  </label>
+   </div>
+
+   <div class="form-control">
+      <label for="q2" id="label-q2">
+        2)After how much time you were heard in PS ?  <span onclick="playaudio(q2e)"><img  height="20px" src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png" alt=""></span>
+      </label>
+      <label for="ans1">
+          <input  name="q2" value="10 minutes" id="q2-ans1" type="radio"><span>🙂10 minutes</span> 
+      </label>
+      <label for="ans2">
+          <input name="q2" value="5 minutes" id="q2-ans2" type="radio"><span>😍5 minutes</span>
+      </label>
+      <label for="ans3">
+          <input name="q2" id="q2-ans3" value="Immediately" type="radio"><span id="q2-ans3-span">😍😍Immediately</span>
+      </label>
+      <label for="ans4">
+          <input name="q2" id="q2-ans3" value="More than 15 minutes" type="radio"><span id="q2-ans4-span">😡More than 15 minutes</span>
+      </label>
+   </div>
+
+   <div class="form-control">
+      <label for="q3" id="label-q3">
+       3)How would you describe your experience with police officers in the police station?  <span onclick="playaudio(q3e)"><img  height="20px" src="https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png" alt=""></span>  </label>
+      <textarea maxlength="300" name="message" id="message" placeholder="Write your Experience (Max 300 Words)" cols="30" rows="10"></textarea>
+   </div>
+   <button class="bt" type="submit" value="submit">Submit</button>
+  </form>
+  <script>
+    function langEnglish() {
+    document.getElementById("mainTitle").innerHTML="Police Feedback System";
+    document.getElementById("label-q1").innerHTML="1)How did you come to the police station ?  <span onclick='playaudio(q1e)'><img  height='20px' src='https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png' alt=''></span>";
+    document.getElementById("q1-ans1-span").innerHTML="Through a person known to a police officer";
+    document.getElementById("q1-ans2-span").innerHTML="With a neighbour/ local leader";
+    document.getElementById("q1-ans3-span").innerHTML="On your own";
+    document.getElementById("label-q2").innerHTML="2)After how much time you were heard in PS ?  <span onclick='playaudio(q2e)'><img  height='20px' src='https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png' alt=''></span>";
+    document.getElementById("q2-ans3-span").innerHTML="😍😍Immediately";
+    document.getElementById("q2-ans4-span").innerHTML="😡More than 15 minutes";
+    document.getElementById("label-q3").innerHTML="3)How would you describe your experience with police officers in the police station?  <span onclick='playaudio(q3e)'><img  height='20px' src='https://viveks-codes.github.io/Pratipushti/prajapati_vishal/spk.png' alt=''></span>";
+}
+function langHindi() {
+    document.getElementById("mainTitle").innerHTML="पुलिस फीडबैक सिस्टम";
+    document.getElementById("label-q1").innerHTML="1)आप थाने कैसे आए?";
+    document.getElementById("q1-ans1-span").innerHTML="एक पुलिस अधिकारी को जानने वाले व्यक्ति के माध्यम से";
+    document.getElementById("q1-ans2-span").innerHTML="एक पड़ोसी/स्थानीय नेता के साथ";
+    document.getElementById("q1-ans3-span").innerHTML="स्वयं के बल पर";
+    document.getElementById("label-q2").innerHTML="2) कितने समय बाद आपको PS में सुना गया?";
+    document.getElementById("q2-ans3-span").innerHTML="😍😍तुरंत";
+    document.getElementById("q2-ans4-span").innerHTML="😡15 मिनट से अधिक";
+    document.getElementById("label-q3").innerHTML="3) आप पुलिस थाने में पुलिस अधिकारियों के साथ अपने अनुभव का वर्णन कैसे करेंगे?";
+    
+}
+function langGujarati() {
+    document.getElementById("mainTitle").innerHTML="પોલીસ ફીડબેક સિસ્ટમ";
+    document.getElementById("label-q1").innerHTML="1)તમે પોલીસ સ્ટેશન કેવી રીતે આવ્યા?";
+    document.getElementById("q1-ans1-span").innerHTML="પોલીસ અધિકારીને ઓળખતી વ્યક્તિ દ્વારા";
+    document.getElementById("q1-ans2-span").innerHTML="પાડોશી/સ્થાનિક નેતા સાથે";
+    document.getElementById("q1-ans3-span").innerHTML="તમારા પોતાના પર";
+    document.getElementById("label-q2").innerHTML="2) તમને PS કેટલા સમય પછી સાંભળવામાં આવ્યું?";
+    document.getElementById("q2-ans3-span").innerHTML="😍😍તરત";
+    document.getElementById("q2-ans4-span").innerHTML="😡15 મિનિટથી વધુ";
+    document.getElementById("label-q3").innerHTML="3) પોલીસ સ્ટેશનમાં પોલીસ અધિકારીઓ સાથેના તમારા અનુભવનું તમે કેવી રીતે વર્ણન કરશો?";
+    
+}
+function playaudio(q){
+    if (q==q1e) {
+        
+        document.getElementById("q1e").play();
+    }
+    if (q==q2e) {
+        
+        document.getElementById("q2e").play();
+    }
+    if (q==q3e) {
+        
+        document.getElementById("q3e").play();
+    }
+
+}
+  </script>
+</body>
+</html>
